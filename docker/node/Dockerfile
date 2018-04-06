@@ -11,12 +11,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /home/node/kbh-billeder
 COPY wait-for-it.sh /home/node/
 CMD npm install && npm run gulp
+CMD npm link ../collections-online && npm link ../collections-online-cumulus
 CMD /home/node/wait-for-it.sh elasticsearch:9200 -- npm run start:nodemon && npm run index all
 
 EXPOSE 9001
 
-#CMD cd /home/node/collections-online && npm link
-#CMD cd /home/node/collections-online-cumulus && npm link
-#CMD cd /home/node/kbh-billeder && npm link collections-online && npm link collections-online-cumulus
-#CMD cd /home/node/app/collections-online-cumulus && npm link collections-online
-#CMD cd /home/node/app/collections-online && npm link collections-online
