@@ -1,0 +1,9 @@
+[submodule "collections-online"]
+	path = collections-online
+	url = git@github.com:CopenhagenCityArchives/collections-online.git
+[submodule "collections-online-cumulus"]
+	path = collections-online-cumulus
+	url = git@github.com:CopenhagenCityArchives/collections-online-cumulus.git
+[submodule "kbh-billeder"]
+	path = kbh-billeder
+	url = git@github.com:CopenhagenCityArchives/kbh-billeder.git
