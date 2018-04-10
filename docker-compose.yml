@@ -5,7 +5,7 @@ services:
     volumes:
       - 'esdata:/usr/share/elasticsearch/data'
     ports:
-      - 9200:9200
+      - 9200
     networks:
       - esnet
 
@@ -14,21 +14,16 @@ services:
     volumes:
       - './data/db:/data/db'
     ports:
-      - '27017:27017'
+      - 27017
 
   node:
-    build: ./docker/node
+    build: .
     user: 'root'
     environment:
       VIRTUAL_HOST: kbhbilleder.docker
       VIRTUAL_PORT: 9001
     volumes:
-      - './kbh-billeder:/home/node/kbh-billeder:cached'
-      - './collections-online:/home/node/collections-online:cached'
-      - './collections-online-cumulus:/home/node/collections-online-cumulus:cached'
-    depends_on:
-      - elasticsearch
-      - mongo
+      - './:/home/node:cached'
     ports:
       - 9001
     networks:
