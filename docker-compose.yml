@@ -25,7 +25,10 @@ services:
       VIRTUAL_HOST: kbhbilleder.docker
       VIRTUAL_PORT: 9001
     volumes:
-      - './:/home/node:cached'
+      - ./:/home/node:cached
+      - /home/node/kbh-billeder/node_modules
+      - /home/node/collections-online/node_modules
+      - /home/node/collections-online-cumulus/node_modules
     ports:
       - 9001
     networks:
