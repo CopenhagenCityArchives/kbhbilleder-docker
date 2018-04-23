@@ -1,0 +1,12 @@
+version: "2"
+services:
+  node:
+    volumes:
+      - kbhbilleder-sync:/home/node:nocopy
+      - /home/node/kbh-billeder/node_modules
+      - /home/node/collections-online/node_modules
+      - /home/node/collections-online-cumulus/node_modules
+
+volumes:
+  kbhbilleder-sync:
+    external: true

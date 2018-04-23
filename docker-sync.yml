@@ -1,0 +1,14 @@
+version: "2"
+
+options:
+  verbose: true
+syncs:
+  kbhbilleder-sync:
+    src: './'
+    sync_excludes: ['.idea', '.git', 'data']
+
+    monit_enable: true
+
+    monit_interval: 10
+    monit_high_cpu_cycles: 6
+
