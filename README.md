@@ -6,9 +6,10 @@ Docker setup for kbhbilleder.
 Requirements
 ------------
 1. [Install Docker](https://store.docker.com/search?type=edition&offering=community)
+2. [Add an .env file](https://github.com/CopenhagenCityArchives/kbh-billeder#create-a-env-file-with-environment-variables)
 
-Mac
----
+Mac & Linux
+------------
 1. `gem install dory`
 2. `dory up`
 3. `docker-compose up -d && docker-compose logs -f node`
@@ -32,3 +33,4 @@ Tips & tricks
 * Changes in `package.json` should invalidate the Docker image cache.
 If it doesn't rebuild, run `docker-compose up --force-rebuild --build`
 * You can run `npm install` inside the container with `docker-compose exec node npm install`
+* Start indexing manually (starts automatically) with `docker-compose exec node run index all`
