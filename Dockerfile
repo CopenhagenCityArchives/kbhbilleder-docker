@@ -41,6 +41,7 @@ WORKDIR /home/node/collections-online/node_modules
 RUN rm -rf collections-online && ln -s /usr/local/lib/node_modules/collections-online collections-online
 
 WORKDIR /home/node/kbh-billeder
+RUN touch google-key.json
 
 CMD ../wait-for-it.sh elasticsearch:9200 -- npm run index all & npm run start:dev
 
