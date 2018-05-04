@@ -19,6 +19,7 @@ Mac & Linux
 
 Windows
 -------
+0. `git submodule update --recursive --remote`
 1. `docker-compose up -d && docker-compose logs -f node`
 2. `docker ps`
 3. Find the kbhbilleder-docker_node port
