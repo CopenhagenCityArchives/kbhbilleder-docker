@@ -6,7 +6,8 @@ Docker setup for kbhbilleder.
 Requirements
 ------------
 1. [Install Docker](https://store.docker.com/search?type=edition&offering=community)
-2. [Add an .env file](https://github.com/CopenhagenCityArchives/kbh-billeder#create-a-env-file-with-environment-variables)
+2. Clone this repository
+3. [Add an .env file to ./kbhbilleder/](https://github.com/CopenhagenCityArchives/kbh-billeder#create-a-env-file-with-environment-variables)
 
 Mac & Linux
 ------------
@@ -19,13 +20,14 @@ Mac & Linux
 
 Windows
 -------
-0. `git submodule update --recursive --remote`
-1. `docker-compose up -d && docker-compose logs -f node`
-2. `docker ps`
-3. Find the kbhbilleder-docker_node port
-4. Access `localhost:port`
-5. ☕️🤷‍♂️ ???
-6. Profit! 💰
+1. `git submodule init`
+2. `git submodule update --recursive --remote`
+3. `docker-compose up -d; docker-compose logs -f node`
+4. `docker ps`
+5. Find the kbhbilleder-docker_node port
+6. Access `localhost:port`
+7. ☕️🤷‍♂️ ???
+8. Profit! 💰
 
 Tips & tricks
 -------------
