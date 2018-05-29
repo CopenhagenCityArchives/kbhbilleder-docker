@@ -1,0 +1,12 @@
+[submodule "collections-online"]
+	path = collections-online
+	url = git@github.com:CopenhagenCityArchives/collections-online.git
+	fetchrecursesubmodules = true
+[submodule "collections-online-cumulus"]
+	path = collections-online-cumulus
+	url = git@github.com:CopenhagenCityArchives/collections-online-cumulus.git
+	fetchrecursesubmodules = true
+[submodule "kbh-billeder"]
+	path = kbh-billeder
+	url = git@github.com:CopenhagenCityArchives/kbh-billeder.git
+	fetchrecursesubmodules = true
