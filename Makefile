@@ -6,14 +6,19 @@
 # MAIN COMMAND TARGETS
 # =============================================================================
 
+# Start the setup - give us an extra long timeout.
 up:
-	docker-compose up
+	COMPOSE_HTTP_TIMEOUT=300 docker-compose up -d
+	docker-compose logs -f --tail=50
+
+down:
+	docker-compose down
 
 # Nuke, update and reinstall everything and bring it all up again.
 reset:
 	docker-compose down -v
 	# We have a large image, so it takes a while to come up.
-	COMPOSE_HTTP_TIMEOUT=120 docker-compose up -d
+	COMPOSE_HTTP_TIMEOUT=300 docker-compose up -d
 	echo "Indexing in the background"
 	docker-compose exec -d node npm run index all
 	docker-compose logs -f --tail=50
