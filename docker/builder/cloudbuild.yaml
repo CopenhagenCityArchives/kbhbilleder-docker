@@ -1,0 +1,8 @@
+# Used to trigger build of a new builder if any changes is made to the
+# docker-setup (which incidentally hosts the builder).
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'eu.gcr.io/kbh-billeder/kbhbilleder-container-builder', '-f', 'docker/builder/Dockerfile-builder',  'docker/builder/.']
+images: ['eu.gcr.io/kbh-billeder/kbhbilleder-container-builder']
+timeout: 10m0s
+
