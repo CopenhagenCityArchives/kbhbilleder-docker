@@ -45,6 +45,11 @@ forward-es-prod:
 forward-es-beta:
 	@scripts/es-connect-env.sh beta
 
+# Start tailing local docker logs.
+logs:
+	docker-compose logs -f --tail=50
+
+# Do a full re-index of the local environment.
 index-all:
 	echo "Indexing all assets"
 	docker-compose exec node npm run index all
