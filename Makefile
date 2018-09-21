@@ -72,3 +72,8 @@ build-dev-env:
 # Use this if you've run npm install/update inside the containers.
 relink:
 	docker-compose exec node /usr/local/bin/re-link.sh
+
+# Triggger a circle-ci build of the master-branch of kbh-billeder which in
+# turn will do a deploy to beta.kbhbilleder.dk
+circleci-build:
+	./scripts/trigger-circle-ci-build.sh
