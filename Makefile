@@ -73,6 +73,18 @@ build-dev-env:
 relink:
 	docker-compose exec node /usr/local/bin/re-link.sh
 
+# Lauch a local web-server for browsing documentation that requires a webserver.
+docs:
+	@echo "Launching webserver."
+	@echo "Direct: "
+	@echo " - http://localhost:8099/docs/map-integration/contract/search.html"
+	@echo " - http://localhost:8099/docs/map-integration/contract/asset.html"
+	@echo "Dory: "
+	@echo " - http://docs.kbhbilleder.docker/docs/map-integration/contract/search.html"
+	@echo " - http://docs.kbhbilleder.docker/docs/map-integration/contract/asset.html"
+	@echo "Press ctrl-c to quit"
+	docker run --rm -p 8099:80 -e VIRTUAL_HOST=docs.kbhbilleder.docker -v "${CURDIR}/projects/kbh-billeder:/usr/share/nginx/html:ro" nginx:stable
+
 # Triggger a circle-ci build of the master-branch of kbh-billeder which in
 # turn will do a deploy to beta.kbhbilleder.dk
 circleci-build:
