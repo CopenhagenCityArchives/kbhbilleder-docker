@@ -55,6 +55,9 @@ COPY docker/dev-env/scripts/re-link.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/dev-env-entrypoint.sh
 RUN chmod +x /usr/local/bin/re-link.sh
 
+HEALTHCHECK --interval=10s --timeout=1s --start-period=10s \
+  CMD node /usr/local/bin/healthcheck.js
+
 EXPOSE 9000
 
 CMD /usr/local/bin/dev-env-entrypoint.sh
