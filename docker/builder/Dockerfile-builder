@@ -20,6 +20,7 @@ RUN apt-get -y update && \
     && rm -rf /var/lib/apt/lists/* # Keeps the image size down
 
 ENV KBH_BILLEDER_BRANCH=master
+ENV KBH_BILLEDER_DOCKER_BRANCH=master
 ENV COLLECTIONS_ONLINE_BRANCH=testing
 ENV COLLECTIONS_ONLINE_CUMULUS_BRANCH=master
 ENV DOCKER_TAG=latest

@@ -50,3 +50,25 @@ index-all:
 	docker-compose exec node npm run index all
 
 .PHONY: index-single index-all reset up
+# Build a local cloud builder image.
+# can be used in consert with run-builder to test a change to the builder
+# locally.
+build-builder:
+	./scripts/build-builder.sh
+
+# Run a local cloud builder build using our local kbhbilleder-docker as context.
+# Use this target for testing changes made to the parts of kbhbilleder-docker
+# the dev-env builder uses.
+# Can also be used for building local dev-env images after changes to eg.
+# lock files.
+build-dev-env-local:
+	./scripts/run-builder-local.sh
+
+# Run a local cloud builder using clean checkouts of all repos.
+# Use this to test a locally build builder against a clean base.
+build-dev-env:
+	./scripts/run-builder.sh
+
+# Use this if you've run npm install/update inside the containers.
+relink:
+	docker-compose exec node /usr/local/bin/re-link.sh

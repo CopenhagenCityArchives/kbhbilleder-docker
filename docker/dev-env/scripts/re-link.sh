@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 #
-# Build a local dev-env image - should not be pushed as it uses whatever
-# revisions has been check out locally.
+# Rebuild a manual "npm link"-like structure that uses absolute paths to be
+# compatible with Docker.
 #
 set -euo pipefail
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd ${SCRIPT_DIR}/../projects/kbh-billeder
+cd /home/node/kbh-billeder/node_modules
 
 rm -rf collections-online
 rm -rf collections-online-cumulus
