@@ -16,7 +16,7 @@ reset:
 	COMPOSE_HTTP_TIMEOUT=120 docker-compose up -d
 	echo "Indexing in the background"
 	docker-compose exec -d node npm run index all
-	docker-compose logs -f
+	docker-compose logs -f --tail=50
 
 # Restart node, requires node to be running
 nr:
@@ -54,7 +54,6 @@ index-all:
 	echo "Indexing all assets"
 	docker-compose exec node npm run index all
 
-.PHONY: index-single index-all reset up
 # Build a local cloud builder image.
 # can be used in consert with run-builder to test a change to the builder
 # locally.
