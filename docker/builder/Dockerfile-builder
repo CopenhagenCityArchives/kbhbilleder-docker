@@ -1,3 +1,6 @@
+# This Dockerfile builds the cloud builder image that in turn can build
+# development-environment images.
+# It expects a checkout of kbhbilleder-docker as its context during build.
 FROM buildpack-deps:jessie
 
 RUN apt-get -y update && \
@@ -21,15 +24,11 @@ ENV COLLECTIONS_ONLINE_BRANCH=testing
 ENV COLLECTIONS_ONLINE_CUMULUS_BRANCH=master
 ENV DOCKER_TAG=latest
 
-CMD mkdir /build
+# Setup a directory structure much like what we have in kbhbilleder-docker.
+# and copy in the files we need from a current checkout of kbhbilleder-docker
 
 WORKDIR /build
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Add the dev env dockerfile and dependencies.
-COPY scripts/wait-for-it.sh ./
-COPY docker/dev-env/Dockerfile-dev-env ./
-
-# Add script we're going to use to do the build.
-COPY docker/builder/build.sh ./
-
-CMD /build/build.sh
+CMD /entrypoint.sh

@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 #
 # Clone repositories needed to do a build and build a dev-env image.
-set -euo pipefail
+set -exuo pipefail
 IFS=$'\n\t'
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $SCRIPT_DIR
-mkdir projects
+# Only clone if it have not been volumed in for dev purposes.
+if [[ ! -d kbhbilleder-docker ]] ; then
+    git clone  https://github.com/CopenhagenCityArchives/kbhbilleder-docker kbhbilleder-docker
+fi
+
+cd kbhbilleder-docker
+
+# Get clones of the projects we'll need.
 git clone --branch="$KBH_BILLEDER_BRANCH" https://github.com/CopenhagenCityArchives/kbh-billeder.git projects/kbh-billeder
 git clone --branch="$COLLECTIONS_ONLINE_BRANCH" https://github.com/CopenhagenCityArchives/collections-online.git projects/collections-online
 git clone --branch="$COLLECTIONS_ONLINE_CUMULUS_BRANCH" https://github.com/CopenhagenCityArchives/collections-online-cumulus.git projects/collections-online-cumulus
@@ -15,4 +21,6 @@ git clone --branch="$COLLECTIONS_ONLINE_CUMULUS_BRANCH" https://github.com/Copen
 # This file is required to exist
 touch projects/kbh-billeder/google-key.json
 
-docker build --tag eu.gcr.io/kbh-billeder/kbhbilleder-docker -f "Dockerfile-dev-env" .
+# Do a build with the kbhbilleder-docker setup in context which should provide
+# Dockerfile-dev-env with all the files it needs.
+docker build --tag eu.gcr.io/kbh-billeder/kbhbilleder-docker:latest -f "docker/dev-env/Dockerfile-dev-env" .
