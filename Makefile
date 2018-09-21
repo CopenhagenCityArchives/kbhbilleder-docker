@@ -37,6 +37,14 @@ debug:
 index-single:
 	./scripts/index-single-asset.sh
 
+# Make the production elasticsearch available via localhost:9300.
+forward-es-prod:
+	@scripts/es-connect-env.sh production
+
+# Make the beat elasticsearch available via localhost:9300.
+forward-es-beta:
+	@scripts/es-connect-env.sh beta
+
 index-all:
 	echo "Indexing all assets"
 	docker-compose exec node npm run index all
