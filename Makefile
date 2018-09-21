@@ -98,3 +98,7 @@ docs:
 # turn will do a deploy to beta.kbhbilleder.dk
 circleci-build:
 	./scripts/trigger-circle-ci-build.sh
+
+# TODO
+# - Trigger a cloud build of the dev environment - for eg. when you push to collection-online
+# - Something that ensures kubectl has the correct context.
