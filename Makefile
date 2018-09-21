@@ -33,10 +33,9 @@ debug:
 	@docker-compose exec node bash -c 'echo "Press any key to stop debugging"; read; rm /var/run/do_debug; echo "Restarting node debuggging disabled"'
 	docker-compose restart node
 
+# Index a single asset.
 index-single:
-	@:$(if ${${asset}},,$(error Syntax: "make asset=kbh-arkiv/33480 index-single"))
-	echo "Indexing ${asset}"
-	docker-compose exec node npm run index single ${asset}
+	./scripts/index-single-asset.sh
 
 index-all:
 	echo "Indexing all assets"
