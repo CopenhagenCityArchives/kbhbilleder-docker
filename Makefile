@@ -25,9 +25,9 @@ reset:
 
 # Restart node, requires node to be running
 nr:
-	# In case the container is running and is in debug mode for some reason,
-	# disable it.
-	@docker-compose exec node touch /var/run/do_debug || true
+    # In case the container is running and is in debug mode for some reason,
+    # disable it.
+	@docker-compose exec node rm -f /var/run/do_debug || true
 	docker-compose restart node
 
 # Switch node into debug mode.
