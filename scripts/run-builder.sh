@@ -8,6 +8,10 @@ IFS=$'\n\t'
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Build a dev-env cloud builder.
+# Build a dev-env cloud builder, use our local kbhbilleder-docker checkout as
+# context.
 cd "${SCRIPT_DIR}/../docker/builder"
-docker build -t eu.gcr.io/kbh-billeder/kbhbilleder-container-builder -f "Dockerfile-builder" .
+time docker run \
+  --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  eu.gcr.io/kbh-billeder/kbhbilleder-container-builder

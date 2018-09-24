@@ -28,11 +28,15 @@ services:
       VIRTUAL_PORT: 9000
     ports:
       - 9000
+      - 9229:9229
     volumes:
       - ./projects/:/home/node:cached
       - /home/node/kbh-billeder/node_modules
       - /home/node/collections-online/node_modules
       - /home/node/collections-online-cumulus/node_modules
+    depends_on:
+      - elasticsearch
+      - mongo
     links:
       - mongo
       - elasticsearch
