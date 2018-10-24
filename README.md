@@ -12,7 +12,7 @@ Requirements
 Get started
 -------
 1. Clone this repo
-2. Clone kbh-billeder, collections-online and collections-online-cumulus into projects/
+2. Clone [kbh-billeder](https://github.com/CopenhagenCityArchives/kbh-billeder), [collections-online](https://github.com/CopenhagenCityArchives/collections-online) and [collections-online-cumulus](https://github.com/CopenhagenCityArchives/collections-online-cumulus) into projects/
 3. [Add an .env file to ./kbhbilleder/](https://github.com/CopenhagenCityArchives/kbh-billeder#create-a-env-file-with-environment-variables)
 4. run ``docker-compose up``
 5. Start indexing with `docker-compose exec node npm run index all`
