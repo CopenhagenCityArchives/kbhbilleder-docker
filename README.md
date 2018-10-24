@@ -8,6 +8,7 @@ Requirements
 1. [Install Docker](https://store.docker.com/search?type=edition&offering=community)
 2. [Dory](https://github.com/FreedomBen/dory#installation)
 3. More than 2GB RAM allocated in Docker (otherwise elasticsearch exits with code 137)
+4. Access to gcloud (To give permission, select the "KBH Billeder" project, go to "IAM", select "Add" and give the person the "Project --> viewer" permission.
 
 Get started
 -------
