@@ -1,5 +1,5 @@
 # This dockerfile builds the image used for running development environments.
-FROM node:8.11
+FROM node:8.16
 
 EXPOSE 9000
 
