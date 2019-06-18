@@ -99,6 +99,17 @@ docs:
 circleci-build:
 	./scripts/trigger-circle-ci-build.sh
 
+clone-projects:
+	git clone --branch=master  git@github.com:CopenhagenCityArchives/collections-online-cumulus.git projects/collections-online-cumulus
+	git clone --branch=testing  git@github.com:CopenhagenCityArchives/collections-online.git projects/collections-online
+	git clone --branch=master  git@github.com:CopenhagenCityArchives/kbh-billeder.git projects/kbh-billeder
+
+checkout-dev:
+	./scripts/checkout.sh dev
+
+checkout-prod:
+	./scripts/checkout.sh prod
+
 # TODO
 # - Trigger a cloud build of the dev environment - for eg. when you push to collection-online
 # - Something that ensures kubectl has the correct context.
