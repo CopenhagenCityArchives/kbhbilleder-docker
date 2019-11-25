@@ -12,8 +12,6 @@ if [[ ! -d /build/kbhbilleder-docker ]] ; then
 
     # Get clones of the projects we'll need.
     git clone --branch="$KBH_BILLEDER_BRANCH" https://github.com/CopenhagenCityArchives/kbh-billeder.git /build/kbhbilleder-docker/projects/kbh-billeder
-    git clone --branch="$COLLECTIONS_ONLINE_BRANCH" https://github.com/CopenhagenCityArchives/collections-online.git /build/kbhbilleder-docker/projects/collections-online
-    git clone --branch="$COLLECTIONS_ONLINE_CUMULUS_BRANCH" https://github.com/CopenhagenCityArchives/collections-online-cumulus.git /build/kbhbilleder-docker/projects/collections-online-cumulus
 
     # This file is required to exist
     touch /build/kbhbilleder-docker/projects/kbh-billeder/google-key.json
