@@ -13,7 +13,7 @@ services:
   mongo:
     image: mongo:3.5.6
     volumes:
-      - ./data/db:/data/db
+      - mongodata:/data/db
     ports:
       - 27017
 
@@ -42,3 +42,4 @@ services:
 volumes:
   esdata:
     driver: local
+  mongodata:
