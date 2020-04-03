@@ -4,8 +4,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 # Only clone if it have not been volumed in for dev purposes.
 if [[ ! -d /build/kbhbilleder-docker ]] ; then
     git clone --branch="$KBH_BILLEDER_DOCKER_BRANCH" https://github.com/CopenhagenCityArchives/kbhbilleder-docker /build/kbhbilleder-docker

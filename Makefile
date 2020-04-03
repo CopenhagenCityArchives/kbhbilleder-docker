@@ -17,7 +17,7 @@ down:
 # Nuke, update and reinstall everything and bring it all up again.
 reset:
 	docker-compose down -v
-	# We have a large image, so it takes a while to come up.
+  # We have a large image, so it takes a while to come up.
 	COMPOSE_HTTP_TIMEOUT=300 docker-compose up -d
 	echo "Indexing in the background"
 	docker-compose exec -d node npm run index all
@@ -25,8 +25,8 @@ reset:
 
 # Restart node, requires node to be running
 nr:
-    # In case the container is running and is in debug mode for some reason,
-    # disable it.
+# In case the container is running and is in debug mode for some reason,
+# disable it.
 	@docker-compose exec node rm -f /var/run/do_debug || true
 	docker-compose restart node
 
@@ -78,9 +78,8 @@ build-dev-env-local:
 build-dev-env:
 	./scripts/run-builder.sh
 
-# Use this if you've run npm install/update inside the containers.
-relink:
-	docker-compose exec node /usr/local/bin/re-link.sh
+clone:
+	cd projects && git clone git@github.com:CopenhagenCityArchives/kbh-billeder.git
 
 # Lauch a local web-server for browsing documentation that requires a webserver.
 docs:
