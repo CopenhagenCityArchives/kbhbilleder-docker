@@ -21,8 +21,6 @@ RUN apt-get -y update && \
 
 ENV KBH_BILLEDER_BRANCH=master
 ENV KBH_BILLEDER_DOCKER_BRANCH=master
-ENV COLLECTIONS_ONLINE_BRANCH=testing
-ENV COLLECTIONS_ONLINE_CUMULUS_BRANCH=master
 ENV DOCKER_TAG=latest
 
 # Setup a directory structure much like what we have in kbhbilleder-docker.
