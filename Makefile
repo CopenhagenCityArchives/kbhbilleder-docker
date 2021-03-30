@@ -81,23 +81,7 @@ build-dev-env:
 clone:
 	cd projects && git clone git@github.com:CopenhagenCityArchives/kbh-billeder.git
 
-# Lauch a local web-server for browsing documentation that requires a webserver.
-docs:
-	@echo "Launching webserver."
-	@echo "Direct: "
-	@echo " - http://localhost:8099/docs/map-integration/contract/search.html"
-	@echo " - http://localhost:8099/docs/map-integration/contract/asset.html"
-	@echo "Dory: "
-	@echo " - http://docs.kbhbilleder.docker/docs/map-integration/contract/search.html"
-	@echo " - http://docs.kbhbilleder.docker/docs/map-integration/contract/asset.html"
-	@echo "Press ctrl-c to quit"
-	docker run --rm -p 8099:80 -e VIRTUAL_HOST=docs.kbhbilleder.docker -v "${CURDIR}/projects/kbh-billeder:/usr/share/nginx/html:ro" nginx:stable
-
 # Triggger a circle-ci build of the master-branch of kbh-billeder which in
 # turn will do a deploy to beta.kbhbilleder.dk
 circleci-build:
 	./scripts/trigger-circle-ci-build.sh
-
-# TODO
-# - Trigger a cloud build of the dev environment - for eg. when you push to collection-online
-# - Something that ensures kubectl has the correct context.
