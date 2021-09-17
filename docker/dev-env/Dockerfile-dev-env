@@ -24,8 +24,6 @@ ENV NPM_CONFIG_LOGLEVEL warn
 WORKDIR /home/node/kbh-billeder
 COPY projects/kbh-billeder/package*.json ./
 RUN npm install --progress=false
-RUN ln -s ../collections-online ./node_modules/collections-online
-RUN ln -s ../collections-online-cumulus ./node_modules/collections-online-cumulus
 
 # Move our entrypoint into place and register it.
 COPY scripts/wait-for-it.sh /usr/local/bin/
